@@ -2,10 +2,11 @@ const express = require('express');
 const midTransClient = require('midtrans-client');
 const bodyParser = require('body-parser');
 const path = require('path');
-const router = require('./routers/index');
-
+const router = require('./routers');
+const cors = require('cors');
 
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, './src/public')))
